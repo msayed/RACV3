@@ -1,0 +1,10 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+logs
+.idea
+/RACFlightDataService/appsettings.Jamal.json
+
+.vs

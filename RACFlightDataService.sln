@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RACFlightDataService", "RACFlightDataService\RACFlightDataService.csproj", "{D578B84A-396C-4A1B-ADFF-62B6E9749428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORMContext", "ORMContext\ORMContext.csproj", "{4868FB2E-67A1-46D5-9894-EDE2D9ED47A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FA5759A5-A4F5-41EF-A3B7-B6348E45FFF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RACFlightDataService.Tests", "RACFlightDataService.Tests\RACFlightDataService.Tests.csproj", "{40AD4888-E55E-4370-8A02-4053B44AE898}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4A47F2C5-1544-451A-8AB0-762944057579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RacServer", "RacServer\RacServer.csproj", "{0BA1C841-EA26-432D-A5FE-D7E5F11EAA62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D578B84A-396C-4A1B-ADFF-62B6E9749428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D578B84A-396C-4A1B-ADFF-62B6E9749428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D578B84A-396C-4A1B-ADFF-62B6E9749428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D578B84A-396C-4A1B-ADFF-62B6E9749428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4868FB2E-67A1-46D5-9894-EDE2D9ED47A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4868FB2E-67A1-46D5-9894-EDE2D9ED47A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4868FB2E-67A1-46D5-9894-EDE2D9ED47A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4868FB2E-67A1-46D5-9894-EDE2D9ED47A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40AD4888-E55E-4370-8A02-4053B44AE898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40AD4888-E55E-4370-8A02-4053B44AE898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40AD4888-E55E-4370-8A02-4053B44AE898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40AD4888-E55E-4370-8A02-4053B44AE898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA1C841-EA26-432D-A5FE-D7E5F11EAA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA1C841-EA26-432D-A5FE-D7E5F11EAA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA1C841-EA26-432D-A5FE-D7E5F11EAA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA1C841-EA26-432D-A5FE-D7E5F11EAA62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40AD4888-E55E-4370-8A02-4053B44AE898} = {FA5759A5-A4F5-41EF-A3B7-B6348E45FFF6}
+		{4868FB2E-67A1-46D5-9894-EDE2D9ED47A0} = {4A47F2C5-1544-451A-8AB0-762944057579}
+		{D578B84A-396C-4A1B-ADFF-62B6E9749428} = {4A47F2C5-1544-451A-8AB0-762944057579}
+		{0BA1C841-EA26-432D-A5FE-D7E5F11EAA62} = {FA5759A5-A4F5-41EF-A3B7-B6348E45FFF6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,56 @@
+﻿SELECT  Uniquekey as id,
+    [InternationalDomesticIndicator] as internationalStatus,
+    [flightNumber],
+    flightSuffix,
+    FlightFrom as departureAirport ,
+    [FlightTo] as arrivalAirport,
+    CONVERT(nvarchar(50),sectordate) as originDate,
+    CONVERT(DATETIME,ScheduledTimeDep,0) as scheduledDeparture,
+    CONVERT(DATETIME,ScheduledTimeDep,0) as estimatedDeparture,
+    case when datediff(MINUTE,ScheduledTimeDep,ScheduledTimeArr)<0 then DATEADD(HOUR,24,ScheduledTimeArr) else ScheduledTimeArr end as scheduledArrival,
+case when datediff(MINUTE,ScheduledTimeDep,ScheduledTimeArr)<0 then DATEADD(HOUR,24,ScheduledTimeArr) else ScheduledTimeArr end as estimatedArrival,
+'XY' as airlineCode,
+'XY' as airlineICAOCode,
+CONVERT(DATETIME,case when ActTimeDep='' then ScheduledTimeDep else ActTimeDep end,0) as offBlock,
+CONVERT(DATETIME,case when ActTimeArr='' then ScheduledTimeArr else ActTimeArr end,0) as onBlock,
+FleetIdentifier as aircraftType,
+CONVERT(DATETIME,case when ActTimeDep='' then ScheduledTimeDep else ActTimeDep end,0) as takeOff,
+CONVERT(DATETIME,case when ActTimeArr='' then ScheduledTimeArr else ActTimeArr end,0) as touchDown,
+null as codeShareInfo,
+null as firstBag,
+null as lastBag,
+convert(nvarchar(50),convert(int,AdultCount)+convert(int,ChildCount)) as numberOfPassengers,
+'320' as aircraftSubType,
+AircraftRegNo as registration,
+'flynas' as callSign,
+convert(nvarchar(50),fleetIdentifier) as fleetIdentifier,
+dayOfWeek,
+'J' as serviceType,
+flightType,
+'GCL' as flightStatus,
+convert(nvarchar(50),adultCount) as adultCount,
+convert(nvarchar(50),childCount) as childCount,
+convert(nvarchar(50),CrewCount) as crewCount,
+convert(nvarchar(50),convert(int,AdultCount)+convert(int,ChildCount)) as totalPlannedPaxCount,
+'0' as transitPaxCount,
+'0' as localPaxCount,
+'0' as transferPaxCount,
+seatCapacity=isnull((select top 1 IL.Capacity from [NAVITAIRE-SQL].[REZXYOD01].rez.InventoryLeg IL where convert(date,IL.stdutc)=FlightTable.SectorDate and ltrim(IL.FlightNumber)=FlightTable.FlightNumber and il.DepartureStation=FlightTable.FlightFrom),174),
+null as takeOffFromOutStation,
+null as actualStartBoardingTime,
+null as calculatedTakeOffTime,
+CONVERT(DATETIME,lastActionTime,0) as lastActionTime,
+convert(nvarchar(50),lastActionCode) as lastActionCode,
+convert(nvarchar(50),Uniquekey) as clientUniqueKey,
+null as CargoDetails,
+'SGS' as agentInfo,
+bookedSeats=
+(select Count(BP1.passengerid) 
+from [NAVITAIRE-SQL].[REZXYOD01].rez.booking b1 inner join [NAVITAIRE-SQL].[REZXYOD01].rez.bookingPassenger BP1 on b1.bookingid = bp1.bookingid 
+INNER JOIN [NAVITAIRE-SQL].[REZXYOD01].rez.PassengerJourneySegment PJS1 ON BP1.PassengerID = PJS1.PassengerID 
+INNER JOIN [NAVITAIRE-SQL].[REZXYOD01].rez.PassengerJourneyLeg PJL1 ON PJL1.PassengerID=PJS1.PassengerID  AND  PJS1.SegmentID=PJL1.SegmentID 
+INNER JOIN [NAVITAIRE-SQL].[REZXYOD01].rez.InventoryLeg IL1 ON IL1.InventoryLegID = PJL1.InventoryLegID
+where convert(date,IL1.stdutc) = FlightTable.SectorDate and ltrim(IL1.FlightNumber)=FlightTable.FlightNumber and BP1.PaxType in('ADT','CHD') and b1.status=2)
+
+
+  FROM FlightTable where SectorDate in(@sectordate,DATEADD(day,1,@sectordate)) and (FlightFrom  ='RUH' or FlightTo='RUH')

@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=093dc1a2_002D26d1_002D4d97_002D81c9_002D4d82849348c4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::40AD4888-E55E-4370-8A02-4053B44AE898::net6.0::RACFlightDataService.Tests.RacOAuthApiTests.Test1&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::40AD4888-E55E-4370-8A02-4053B44AE898::net6.0::RACFlightDataService.Tests.RacOAuthApiTests.Test2&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::40AD4888-E55E-4370-8A02-4053B44AE898::net6.0::RACFlightDataService.Tests.RacOAuthApiTests.Serialize&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::40AD4888-E55E-4370-8A02-4053B44AE898::net6.0::RACFlightDataService.Tests.RacOAuthApiTests.check_get_method&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
