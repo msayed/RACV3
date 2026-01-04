@@ -38,7 +38,7 @@ public class FlightsJobService : IHostedService
     private IMonitoringApi _monitoringApi;
 
     public FlightsJobService(ILoggerAdapter<FlightsJobService> logger,
-        IServiceScopeFactory serviceScopeFactory,IBackgroundJobClient backgroundJobClient,IRecurringJobManager recurringJobManager)
+        IServiceScopeFactory serviceScopeFactory, IBackgroundJobClient backgroundJobClient, IRecurringJobManager recurringJobManager)
     {
         _logger = logger;
         _serviceScopeFactory = serviceScopeFactory;
@@ -64,16 +64,16 @@ public class FlightsJobService : IHostedService
         // }
 
         _recurringJobManager.AddOrUpdate("tav-auto-service-refreshing",
-         () => racService.TavAutoServiceProcess(cancellationToken), "*/10 * * * *", queue: "rac-flight");
+         () => racService.TavAutoServiceProcess(cancellationToken), "*/30 * * * *", queue: "rac-flight");
 
-        _recurringJobManager.AddOrUpdate("pull-from-gaca", 
-            ()=> racService.PullFlightsFromGacaAsync(cancellationToken),"*/10 * * * *",queue:"rac-flight");
-        _recurringJobManager.AddOrUpdate("notify-rac", 
-            ()=> racService.SentForRuh(cancellationToken),"*/5 * * * *",queue:"rac-flight");
-     
+        _recurringJobManager.AddOrUpdate("pull-from-gaca",
+            () => racService.PullFlightsFromGacaAsync(cancellationToken), "*/10 * * * *", queue: "rac-flight");
+        _recurringJobManager.AddOrUpdate("notify-rac",
+            () => racService.SentForRuh(cancellationToken), "*/5 * * * *", queue: "rac-flight");
+
     }
 
-  
+
 
     public async Task StopAsync(CancellationToken cancellationToken)
     {
